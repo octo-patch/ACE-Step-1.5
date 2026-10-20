@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 CUSTOM_BASE_URL_PRESET = "__custom__"
+MINIMAX_TEXT_MODELS = ("MiniMax-M3.1-Flash", "MiniMax-M3")
 
 
 @dataclass(frozen=True)
@@ -57,7 +58,7 @@ _EXTERNAL_PROVIDER_PROFILES: dict[str, ExternalProviderProfile] = {
         provider_id="minimax",
         label="MiniMax",
         protocol="openai_chat",
-        default_model="MiniMax-M3",
+        default_model=MINIMAX_TEXT_MODELS[0],
         default_base_url="https://api.minimax.io/v1/chat/completions",
         api_key_env="ACESTEP_MINIMAX_API_KEY",
         api_key_required=True,
@@ -72,7 +73,7 @@ _EXTERNAL_PROVIDER_PROFILES: dict[str, ExternalProviderProfile] = {
         provider_id="minimax_anthropic",
         label="MiniMax (Anthropic API)",
         protocol="anthropic_messages",
-        default_model="MiniMax-M3",
+        default_model=MINIMAX_TEXT_MODELS[0],
         default_base_url="https://api.minimax.io/anthropic/v1/messages",
         api_key_env="ACESTEP_MINIMAX_API_KEY",
         api_key_required=True,

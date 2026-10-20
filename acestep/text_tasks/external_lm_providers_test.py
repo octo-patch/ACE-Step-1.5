@@ -23,7 +23,7 @@ class ExternalLmProvidersTests(unittest.TestCase):
         profile = get_external_provider_profile("minimax")
 
         self.assertEqual(profile.protocol, "openai_chat")
-        self.assertEqual(profile.default_model, "MiniMax-M3")
+        self.assertEqual(profile.default_model, "MiniMax-M3.1-Flash")
         self.assertEqual(
             profile.default_base_url,
             "https://api.minimax.io/v1/chat/completions",
@@ -36,7 +36,7 @@ class ExternalLmProvidersTests(unittest.TestCase):
         profile = get_external_provider_profile("minimax_anthropic")
 
         self.assertEqual(profile.protocol, "anthropic_messages")
-        self.assertEqual(profile.default_model, "MiniMax-M3")
+        self.assertEqual(profile.default_model, "MiniMax-M3.1-Flash")
         self.assertEqual(
             profile.default_base_url,
             "https://api.minimax.io/anthropic/v1/messages",
@@ -77,7 +77,7 @@ class ExternalLmProvidersTests(unittest.TestCase):
 
         choice = build_external_model_choice("minimax", "")
 
-        self.assertEqual(choice, "external:minimax:MiniMax-M3")
+        self.assertEqual(choice, "external:minimax:MiniMax-M3.1-Flash")
 
     def test_base_url_preset_helpers_use_shared_custom_token(self) -> None:
         """Custom base-URL selection should use the centralized custom token."""
